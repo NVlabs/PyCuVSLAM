@@ -1,0 +1,509 @@
+[
+    {
+        "cameras": [
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0.25
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        -1,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        -1,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        -1,
+                        0,
+                        0,
+                        0.25
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        -1,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        -1,
+                        0,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        0,
+                        0,
+                        1,
+                        0.25
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        -1,
+                        0,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        0,
+                        0,
+                        -1,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        0,
+                        0,
+                        -1,
+                        0.25
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        -1,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0.25
+                    ],
+                    [
+                        0,
+                        0,
+                        -1,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    [
+                        0,
+                        -1,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            {
+                "intrinsics": {
+                    "distortion_model": "pinhole",
+                    "distortion_params": [],
+                    "focal": [
+                        320,
+                        320
+                    ],
+                    "principal": [
+                        320,
+                        320
+                    ],
+                    "size": [
+                        640,
+                        640
+                    ]
+                },
+                "transform": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0.25
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    [
+                        0,
+                        -1,
+                        0,
+                        0
+                    ]
+                ]
+            }
+        ],
+        "frame_end": 1467,
+        "frame_start": 0,
+        "version": "0.9"
+    },
+    {
+        "fps": 30,
+        "points2d": {},
+        "points3d": {},
+        "rig_positions": {},
+        "sequence": [
+            [
+                "image_lcam_front/000000.png"
+            ],
+            [
+                "image_rcam_front/000000.png"
+            ],
+            [
+                "image_lcam_back/000000.png"
+            ],
+            [
+                "image_rcam_back/000000.png"
+            ],
+            [
+                "image_lcam_left/000000.png"
+            ],
+            [
+                "image_rcam_left/000000.png"
+            ],
+            [
+                "image_lcam_right/000000.png"
+            ],
+            [
+                "image_rcam_right/000000.png"
+            ],
+            [
+                "image_lcam_top/000000.png"
+            ],
+            [
+                "image_rcam_top/000000.png"
+            ],
+            [
+                "image_lcam_bottom/000000.png"
+            ],
+            [
+                "image_rcam_bottom/000000.png"
+            ]
+        ]
+    }
+]

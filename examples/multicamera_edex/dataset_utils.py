@@ -1,3 +1,13 @@
+#
+# Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+#
+# NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
+# property and proprietary rights in and to this material, related
+# documentation and any modifications thereto. Any use, reproduction,
+# disclosure or distribution of this material and related documentation
+# without an express license agreement from NVIDIA CORPORATION or
+# its affiliates is strictly prohibited.
+#
 import os
 import numpy as np
 import cuvslam as vslam
@@ -5,13 +15,13 @@ from typing import List, Tuple
 from scipy.spatial.transform import Rotation
 import json
 
-def to_distortion_model(distortion: str) -> vslam.DistortionModel:
-    """Convert string distortion model name to vslam.DistortionModel enum."""
+def to_distortion_model(distortion: str) -> vslam.Distortion.Model:
+    """Convert string distortion model name to vslam.Distortion.Model enum."""
     distortion_models = {
-        'pinhole': vslam.DistortionModel.Pinhole,
-        'fisheye': vslam.DistortionModel.Fisheye,
-        'brown': vslam.DistortionModel.Brown,
-        'polynomial': vslam.DistortionModel.Polynomial
+        'pinhole': vslam.Distortion.Model.Pinhole,
+        'fisheye': vslam.Distortion.Model.Fisheye,
+        'brown': vslam.Distortion.Model.Brown,
+        'polynomial': vslam.Distortion.Model.Polynomial
     }
     if distortion not in distortion_models:
         raise ValueError(f"Unknown distortion model: {distortion}")

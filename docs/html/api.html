@@ -1,0 +1,1076 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; PyCuVSLAM  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=47dcf29b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to PyCuVSLAM’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyCuVSLAM
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-structures">Data Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Pose"><code class="docutils literal notranslate"><span class="pre">Pose</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Pose.rotation"><code class="docutils literal notranslate"><span class="pre">Pose.rotation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Pose.translation"><code class="docutils literal notranslate"><span class="pre">Pose.translation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Distortion"><code class="docutils literal notranslate"><span class="pre">Distortion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.Brown"><code class="docutils literal notranslate"><span class="pre">Distortion.Brown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.Fisheye"><code class="docutils literal notranslate"><span class="pre">Distortion.Fisheye</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.Model"><code class="docutils literal notranslate"><span class="pre">Distortion.Model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.Pinhole"><code class="docutils literal notranslate"><span class="pre">Distortion.Pinhole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.Polynomial"><code class="docutils literal notranslate"><span class="pre">Distortion.Polynomial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.model"><code class="docutils literal notranslate"><span class="pre">Distortion.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Distortion.parameters"><code class="docutils literal notranslate"><span class="pre">Distortion.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.border_bottom"><code class="docutils literal notranslate"><span class="pre">Camera.border_bottom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.border_left"><code class="docutils literal notranslate"><span class="pre">Camera.border_left</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.border_right"><code class="docutils literal notranslate"><span class="pre">Camera.border_right</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.border_top"><code class="docutils literal notranslate"><span class="pre">Camera.border_top</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.distortion"><code class="docutils literal notranslate"><span class="pre">Camera.distortion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.focal"><code class="docutils literal notranslate"><span class="pre">Camera.focal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.principal"><code class="docutils literal notranslate"><span class="pre">Camera.principal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.rig_from_camera"><code class="docutils literal notranslate"><span class="pre">Camera.rig_from_camera</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Camera.size"><code class="docutils literal notranslate"><span class="pre">Camera.size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.ImuCalibration"><code class="docutils literal notranslate"><span class="pre">ImuCalibration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.accelerometer_noise_density"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.accelerometer_noise_density</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.accelerometer_random_walk"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.accelerometer_random_walk</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.frequency"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.frequency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.gyroscope_noise_density"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.gyroscope_noise_density</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.gyroscope_random_walk"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.gyroscope_random_walk</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuCalibration.rig_from_imu"><code class="docutils literal notranslate"><span class="pre">ImuCalibration.rig_from_imu</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Rig"><code class="docutils literal notranslate"><span class="pre">Rig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Rig.cameras"><code class="docutils literal notranslate"><span class="pre">Rig.cameras</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Rig.imus"><code class="docutils literal notranslate"><span class="pre">Rig.imus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.PoseEstimate"><code class="docutils literal notranslate"><span class="pre">PoseEstimate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.PoseEstimate.timestamp_ns"><code class="docutils literal notranslate"><span class="pre">PoseEstimate.timestamp_ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.PoseEstimate.world_from_rig"><code class="docutils literal notranslate"><span class="pre">PoseEstimate.world_from_rig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.ImuMeasurement"><code class="docutils literal notranslate"><span class="pre">ImuMeasurement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuMeasurement.angular_velocities"><code class="docutils literal notranslate"><span class="pre">ImuMeasurement.angular_velocities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuMeasurement.linear_accelerations"><code class="docutils literal notranslate"><span class="pre">ImuMeasurement.linear_accelerations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.ImuMeasurement.timestamp_ns"><code class="docutils literal notranslate"><span class="pre">ImuMeasurement.timestamp_ns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Landmark"><code class="docutils literal notranslate"><span class="pre">Landmark</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Landmark.coords"><code class="docutils literal notranslate"><span class="pre">Landmark.coords</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Landmark.id"><code class="docutils literal notranslate"><span class="pre">Landmark.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Observation"><code class="docutils literal notranslate"><span class="pre">Observation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Observation.camera_index"><code class="docutils literal notranslate"><span class="pre">Observation.camera_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Observation.id"><code class="docutils literal notranslate"><span class="pre">Observation.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Observation.u"><code class="docutils literal notranslate"><span class="pre">Observation.u</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Observation.v"><code class="docutils literal notranslate"><span class="pre">Observation.v</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Odometry.MulticameraMode"><code class="docutils literal notranslate"><span class="pre">MulticameraMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.MulticameraMode.Performance"><code class="docutils literal notranslate"><span class="pre">MulticameraMode.Performance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.MulticameraMode.Precision"><code class="docutils literal notranslate"><span class="pre">MulticameraMode.Precision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.MulticameraMode.Moderate"><code class="docutils literal notranslate"><span class="pre">MulticameraMode.Moderate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Odometry.OdometryMode"><code class="docutils literal notranslate"><span class="pre">OdometryMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.OdometryMode.Multicamera"><code class="docutils literal notranslate"><span class="pre">OdometryMode.Multicamera</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.OdometryMode.Inertial"><code class="docutils literal notranslate"><span class="pre">OdometryMode.Inertial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.OdometryMode.RGBD"><code class="docutils literal notranslate"><span class="pre">OdometryMode.RGBD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.OdometryMode.Mono"><code class="docutils literal notranslate"><span class="pre">OdometryMode.Mono</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Odometry.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.async_sba"><code class="docutils literal notranslate"><span class="pre">Config.async_sba</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.debug_dump_directory"><code class="docutils literal notranslate"><span class="pre">Config.debug_dump_directory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.debug_imu_mode"><code class="docutils literal notranslate"><span class="pre">Config.debug_imu_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.enable_final_landmarks_export"><code class="docutils literal notranslate"><span class="pre">Config.enable_final_landmarks_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.enable_landmarks_export"><code class="docutils literal notranslate"><span class="pre">Config.enable_landmarks_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.enable_observations_export"><code class="docutils literal notranslate"><span class="pre">Config.enable_observations_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.horizontal_stereo_camera"><code class="docutils literal notranslate"><span class="pre">Config.horizontal_stereo_camera</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.max_frame_delta_s"><code class="docutils literal notranslate"><span class="pre">Config.max_frame_delta_s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.multicam_mode"><code class="docutils literal notranslate"><span class="pre">Config.multicam_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.odometry_mode"><code class="docutils literal notranslate"><span class="pre">Config.odometry_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.rgbd_settings"><code class="docutils literal notranslate"><span class="pre">Config.rgbd_settings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.use_denoising"><code class="docutils literal notranslate"><span class="pre">Config.use_denoising</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.use_gpu"><code class="docutils literal notranslate"><span class="pre">Config.use_gpu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.Config.use_motion_model"><code class="docutils literal notranslate"><span class="pre">Config.use_motion_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Odometry.RGBDSettings"><code class="docutils literal notranslate"><span class="pre">RGBDSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.RGBDSettings.depth_camera_id"><code class="docutils literal notranslate"><span class="pre">RGBDSettings.depth_camera_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.RGBDSettings.depth_scale_factor"><code class="docutils literal notranslate"><span class="pre">RGBDSettings.depth_scale_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Odometry.RGBDSettings.enable_depth_stereo_tracking"><code class="docutils literal notranslate"><span class="pre">RGBDSettings.enable_depth_stereo_tracking</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Slam.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.enable_reading_internals"><code class="docutils literal notranslate"><span class="pre">Config.enable_reading_internals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.gt_align_mode"><code class="docutils literal notranslate"><span class="pre">Config.gt_align_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.map_cell_size"><code class="docutils literal notranslate"><span class="pre">Config.map_cell_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.max_map_size"><code class="docutils literal notranslate"><span class="pre">Config.max_map_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.planar_constraints"><code class="docutils literal notranslate"><span class="pre">Config.planar_constraints</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.sync_mode"><code class="docutils literal notranslate"><span class="pre">Config.sync_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.throttling_time_ms"><code class="docutils literal notranslate"><span class="pre">Config.throttling_time_ms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Config.use_gpu"><code class="docutils literal notranslate"><span class="pre">Config.use_gpu</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Slam.Metrics"><code class="docutils literal notranslate"><span class="pre">Metrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.lc_good_landmarks_count"><code class="docutils literal notranslate"><span class="pre">Metrics.lc_good_landmarks_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.lc_pnp_landmarks_count"><code class="docutils literal notranslate"><span class="pre">Metrics.lc_pnp_landmarks_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.lc_selected_landmarks_count"><code class="docutils literal notranslate"><span class="pre">Metrics.lc_selected_landmarks_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.lc_status"><code class="docutils literal notranslate"><span class="pre">Metrics.lc_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.lc_tracked_landmarks_count"><code class="docutils literal notranslate"><span class="pre">Metrics.lc_tracked_landmarks_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.pgo_status"><code class="docutils literal notranslate"><span class="pre">Metrics.pgo_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.Metrics.timestamp_ns"><code class="docutils literal notranslate"><span class="pre">Metrics.timestamp_ns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings.angular_step_rads"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings.angular_step_rads</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings.horizontal_search_radius"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings.horizontal_search_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings.horizontal_step"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings.horizontal_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings.vertical_search_radius"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings.vertical_search_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings.vertical_step"><code class="docutils literal notranslate"><span class="pre">LocalizationSettings.vertical_step</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracker-class">Tracker class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.Tracker"><code class="docutils literal notranslate"><span class="pre">Tracker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.OdometryConfig"><code class="docutils literal notranslate"><span class="pre">Tracker.OdometryConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.OdometryRGBDSettings"><code class="docutils literal notranslate"><span class="pre">Tracker.OdometryRGBDSettings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.SlamConfig"><code class="docutils literal notranslate"><span class="pre">Tracker.SlamConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.SlamMetrics"><code class="docutils literal notranslate"><span class="pre">Tracker.SlamMetrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.SlamLocalizationSettings"><code class="docutils literal notranslate"><span class="pre">Tracker.SlamLocalizationSettings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.track"><code class="docutils literal notranslate"><span class="pre">Tracker.track()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.register_imu_measurement"><code class="docutils literal notranslate"><span class="pre">Tracker.register_imu_measurement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_last_observations"><code class="docutils literal notranslate"><span class="pre">Tracker.get_last_observations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_last_landmarks"><code class="docutils literal notranslate"><span class="pre">Tracker.get_last_landmarks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_last_gravity"><code class="docutils literal notranslate"><span class="pre">Tracker.get_last_gravity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_final_landmarks"><code class="docutils literal notranslate"><span class="pre">Tracker.get_final_landmarks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_all_slam_poses"><code class="docutils literal notranslate"><span class="pre">Tracker.get_all_slam_poses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_pose_graph"><code class="docutils literal notranslate"><span class="pre">Tracker.get_pose_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_slam_metrics"><code class="docutils literal notranslate"><span class="pre">Tracker.get_slam_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cuvslam.Tracker.get_loop_closure_poses"><code class="docutils literal notranslate"><span class="pre">Tracker.get_loop_closure_poses()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.get_version"><code class="docutils literal notranslate"><span class="pre">get_version()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.set_verbosity"><code class="docutils literal notranslate"><span class="pre">set_verbosity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cuvslam.warm_up_gpu"><code class="docutils literal notranslate"><span class="pre">warm_up_gpu()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyCuVSLAM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cuvslam">
+<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-cuvslam" title="Link to this heading"></a></h1>
+<p>This module provides Python bindings for the cuVSLAM library.</p>
+<section id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Pose">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Pose</span></span><a class="headerlink" href="#cuvslam.Pose" title="Link to this definition"></a></dt>
+<dd><p>Transformation from one frame to another.</p>
+<p>Consists of rotation (quaternion in x, y, z, w order) and translation (3-vector).</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Pose.rotation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation</span></span><a class="headerlink" href="#cuvslam.Pose.rotation" title="Link to this definition"></a></dt>
+<dd><p>Rotation (quaternion in x, y, z, w order)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Pose.translation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">translation</span></span><a class="headerlink" href="#cuvslam.Pose.translation" title="Link to this definition"></a></dt>
+<dd><p>Translation (3-vector)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Distortion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Distortion</span></span><a class="headerlink" href="#cuvslam.Distortion" title="Link to this definition"></a></dt>
+<dd><p>Camera distortion model with parameters.</p>
+<p>Supports Pinhole (no distortion), Brown (radial and tangential),Fisheye (equidistant), and Polynomial distortion models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Brown">
+<span class="sig-name descname"><span class="pre">Brown</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#cuvslam.Distortion.Brown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Fisheye">
+<span class="sig-name descname"><span class="pre">Fisheye</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#cuvslam.Distortion.Fisheye" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cuvslam.Distortion.Model" title="Link to this definition"></a></dt>
+<dd><p>Distortion model types for camera calibration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Model.Pinhole">
+<span class="sig-name descname"><span class="pre">Pinhole</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#cuvslam.Distortion.Model.Pinhole" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Model.Brown">
+<span class="sig-name descname"><span class="pre">Brown</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#cuvslam.Distortion.Model.Brown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Model.Fisheye">
+<span class="sig-name descname"><span class="pre">Fisheye</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#cuvslam.Distortion.Model.Fisheye" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Model.Polynomial">
+<span class="sig-name descname"><span class="pre">Polynomial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#cuvslam.Distortion.Model.Polynomial" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Pinhole">
+<span class="sig-name descname"><span class="pre">Pinhole</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#cuvslam.Distortion.Pinhole" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Distortion.Polynomial">
+<span class="sig-name descname"><span class="pre">Polynomial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#cuvslam.Distortion.Polynomial" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Distortion.model">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#cuvslam.Distortion.model" title="Link to this definition"></a></dt>
+<dd><p>Distortion model type, see <a class="reference internal" href="#cuvslam.Distortion.Model" title="cuvslam.Distortion.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distortion.Model</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Distortion.parameters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#cuvslam.Distortion.parameters" title="Link to this definition"></a></dt>
+<dd><p>Array of distortion parameters depending on model</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Camera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><a class="headerlink" href="#cuvslam.Camera" title="Link to this definition"></a></dt>
+<dd><p>Camera calibration parameters.</p>
+<p>Describes intrinsic and extrinsic parameters of a camera and per-camera settings.
+For camera coordinate system, top left pixel has (0, 0) coordinate (y is down, x is right).</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.border_bottom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">border_bottom</span></span><a class="headerlink" href="#cuvslam.Camera.border_bottom" title="Link to this definition"></a></dt>
+<dd><p>Bottom border to ignore in pixels (0 to use full frame)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.border_left">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">border_left</span></span><a class="headerlink" href="#cuvslam.Camera.border_left" title="Link to this definition"></a></dt>
+<dd><p>Left border to ignore in pixels (0 to use full frame)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.border_right">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">border_right</span></span><a class="headerlink" href="#cuvslam.Camera.border_right" title="Link to this definition"></a></dt>
+<dd><p>Right border to ignore in pixels (0 to use full frame)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.border_top">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">border_top</span></span><a class="headerlink" href="#cuvslam.Camera.border_top" title="Link to this definition"></a></dt>
+<dd><p>Top border to ignore in pixels (0 to use full frame)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.distortion">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">distortion</span></span><a class="headerlink" href="#cuvslam.Camera.distortion" title="Link to this definition"></a></dt>
+<dd><p>Distortion parameters, see <a class="reference internal" href="#cuvslam.Distortion" title="cuvslam.Distortion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distortion</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.focal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">focal</span></span><a class="headerlink" href="#cuvslam.Camera.focal" title="Link to this definition"></a></dt>
+<dd><p>Focal length (fx, fy)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.principal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">principal</span></span><a class="headerlink" href="#cuvslam.Camera.principal" title="Link to this definition"></a></dt>
+<dd><p>Principal point (cx, cy)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.rig_from_camera">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rig_from_camera</span></span><a class="headerlink" href="#cuvslam.Camera.rig_from_camera" title="Link to this definition"></a></dt>
+<dd><p>Transformation from the camera coordinate frame to the rig coordinate frame</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Camera.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#cuvslam.Camera.size" title="Link to this definition"></a></dt>
+<dd><p>Size of the camera (width, height)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">ImuCalibration</span></span><a class="headerlink" href="#cuvslam.ImuCalibration" title="Link to this definition"></a></dt>
+<dd><p>IMU Calibration parameters</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.accelerometer_noise_density">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerometer_noise_density</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.accelerometer_noise_density" title="Link to this definition"></a></dt>
+<dd><p>Accelerometer noise density in <span class="math notranslate nohighlight">\(m/(s^2*sqrt(hz))\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.accelerometer_random_walk">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerometer_random_walk</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.accelerometer_random_walk" title="Link to this definition"></a></dt>
+<dd><p>Accelerometer random walk in <span class="math notranslate nohighlight">\(m/(s^3*sqrt(hz))\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.frequency">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.frequency" title="Link to this definition"></a></dt>
+<dd><p>IMU frequency in <span class="math notranslate nohighlight">\(hz\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.gyroscope_noise_density">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gyroscope_noise_density</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.gyroscope_noise_density" title="Link to this definition"></a></dt>
+<dd><p>Gyroscope noise density in <span class="math notranslate nohighlight">\(rad/(s*sqrt(hz))\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.gyroscope_random_walk">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gyroscope_random_walk</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.gyroscope_random_walk" title="Link to this definition"></a></dt>
+<dd><p>Gyroscope random walk in <span class="math notranslate nohighlight">\(rad/(s^2*sqrt(hz))\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuCalibration.rig_from_imu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rig_from_imu</span></span><a class="headerlink" href="#cuvslam.ImuCalibration.rig_from_imu" title="Link to this definition"></a></dt>
+<dd><p>Transformation from IMU coordinate frame to the rig coordinate frame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Rig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Rig</span></span><a class="headerlink" href="#cuvslam.Rig" title="Link to this definition"></a></dt>
+<dd><p>Rig consisting of cameras and 0 or 1 IMU sensors</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Rig.cameras">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cameras</span></span><a class="headerlink" href="#cuvslam.Rig.cameras" title="Link to this definition"></a></dt>
+<dd><p>List of cameras in the rig, see <a class="reference internal" href="#cuvslam.Camera" title="cuvslam.Camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">Camera</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Rig.imus">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imus</span></span><a class="headerlink" href="#cuvslam.Rig.imus" title="Link to this definition"></a></dt>
+<dd><p>List of IMU sensors in the rig (0 or 1 only), see <a class="reference internal" href="#cuvslam.ImuCalibration" title="cuvslam.ImuCalibration"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImuCalibration</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.PoseEstimate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">PoseEstimate</span></span><a class="headerlink" href="#cuvslam.PoseEstimate" title="Link to this definition"></a></dt>
+<dd><p>Rig pose estimate from the tracker. The pose is world_from_rig where:</p>
+<p>The rig coordinate frame is user-defined and depends on the extrinsic parameters of the cameras.
+The world coordinate frame is an arbitrary 3D coordinate frame, corresponding to the rig frame at the start of tracking.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.PoseEstimate.timestamp_ns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp_ns</span></span><a class="headerlink" href="#cuvslam.PoseEstimate.timestamp_ns" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of the pose estimate in nanoseconds</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.PoseEstimate.world_from_rig">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">world_from_rig</span></span><a class="headerlink" href="#cuvslam.PoseEstimate.world_from_rig" title="Link to this definition"></a></dt>
+<dd><p>Rig pose in the world coordinate frame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.ImuMeasurement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">ImuMeasurement</span></span><a class="headerlink" href="#cuvslam.ImuMeasurement" title="Link to this definition"></a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuMeasurement.angular_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angular_velocities</span></span><a class="headerlink" href="#cuvslam.ImuMeasurement.angular_velocities" title="Link to this definition"></a></dt>
+<dd><p>Angular velocities in <span class="math notranslate nohighlight">\(rad/s\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuMeasurement.linear_accelerations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">linear_accelerations</span></span><a class="headerlink" href="#cuvslam.ImuMeasurement.linear_accelerations" title="Link to this definition"></a></dt>
+<dd><p>Linear accelerations in <span class="math notranslate nohighlight">\(m/s^2\)</span></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.ImuMeasurement.timestamp_ns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp_ns</span></span><a class="headerlink" href="#cuvslam.ImuMeasurement.timestamp_ns" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of the IMU measurement in nanoseconds</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Landmark">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Landmark</span></span><a class="headerlink" href="#cuvslam.Landmark" title="Link to this definition"></a></dt>
+<dd><p>3D landmark point</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Landmark.coords">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#cuvslam.Landmark.coords" title="Link to this definition"></a></dt>
+<dd><p>3D coordinates of the landmark</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Landmark.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#cuvslam.Landmark.id" title="Link to this definition"></a></dt>
+<dd><p>Unique ID of the landmark</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Observation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Observation</span></span><a class="headerlink" href="#cuvslam.Observation" title="Link to this definition"></a></dt>
+<dd><p>2D observation of a landmark in an image</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Observation.camera_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">camera_index</span></span><a class="headerlink" href="#cuvslam.Observation.camera_index" title="Link to this definition"></a></dt>
+<dd><p>Index of the camera that made this observation</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Observation.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#cuvslam.Observation.id" title="Link to this definition"></a></dt>
+<dd><p>Unique ID of the observed landmark</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Observation.u">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#cuvslam.Observation.u" title="Link to this definition"></a></dt>
+<dd><p>Horizontal pixel coordinate of the observation</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.Observation.v">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cuvslam.Observation.v" title="Link to this definition"></a></dt>
+<dd><p>Vertical pixel coordinate of the observation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.MulticameraMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Odometry.</span></span><span class="sig-name descname"><span class="pre">MulticameraMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cuvslam.core.Odometry.MulticameraMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.MulticameraMode.Performance">
+<span class="sig-name descname"><span class="pre">Performance</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#cuvslam.core.Odometry.MulticameraMode.Performance" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.MulticameraMode.Precision">
+<span class="sig-name descname"><span class="pre">Precision</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#cuvslam.core.Odometry.MulticameraMode.Precision" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.MulticameraMode.Moderate">
+<span class="sig-name descname"><span class="pre">Moderate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#cuvslam.core.Odometry.MulticameraMode.Moderate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.OdometryMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Odometry.</span></span><span class="sig-name descname"><span class="pre">OdometryMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cuvslam.core.Odometry.OdometryMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.OdometryMode.Multicamera">
+<span class="sig-name descname"><span class="pre">Multicamera</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#cuvslam.core.Odometry.OdometryMode.Multicamera" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.OdometryMode.Inertial">
+<span class="sig-name descname"><span class="pre">Inertial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#cuvslam.core.Odometry.OdometryMode.Inertial" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.OdometryMode.RGBD">
+<span class="sig-name descname"><span class="pre">RGBD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#cuvslam.core.Odometry.OdometryMode.RGBD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.OdometryMode.Mono">
+<span class="sig-name descname"><span class="pre">Mono</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#cuvslam.core.Odometry.OdometryMode.Mono" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Odometry.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config" title="Link to this definition"></a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.async_sba">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_sba</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.async_sba" title="Link to this definition"></a></dt>
+<dd><p>Whether to run bundle adjustment asynchronously</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.debug_dump_directory">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug_dump_directory</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.debug_dump_directory" title="Link to this definition"></a></dt>
+<dd><p>Directory for debug data dumps. If empty, no debug data will be dumped</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.debug_imu_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug_imu_mode</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.debug_imu_mode" title="Link to this definition"></a></dt>
+<dd><p>Whether to enable IMU debug mode</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.enable_final_landmarks_export">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_final_landmarks_export</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.enable_final_landmarks_export" title="Link to this definition"></a></dt>
+<dd><p>Whether to export final landmarks</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.enable_landmarks_export">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_landmarks_export</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.enable_landmarks_export" title="Link to this definition"></a></dt>
+<dd><p>Whether to export landmarks during tracking</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.enable_observations_export">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_observations_export</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.enable_observations_export" title="Link to this definition"></a></dt>
+<dd><p>Whether to export landmark observations in images during tracking</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.horizontal_stereo_camera">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">horizontal_stereo_camera</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.horizontal_stereo_camera" title="Link to this definition"></a></dt>
+<dd><p>Whether stereo cameras are rectified and horizontally aligned</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.max_frame_delta_s">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_frame_delta_s</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.max_frame_delta_s" title="Link to this definition"></a></dt>
+<dd><p>Maximum time difference between frames in seconds</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.multicam_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">multicam_mode</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.multicam_mode" title="Link to this definition"></a></dt>
+<dd><p>See <code class="xref py py-class docutils literal notranslate"><span class="pre">Odometry.MulticameraMode</span></code></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.odometry_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">odometry_mode</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.odometry_mode" title="Link to this definition"></a></dt>
+<dd><p>See <code class="xref py py-class docutils literal notranslate"><span class="pre">Odometry.OdometryMode</span></code></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.rgbd_settings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgbd_settings</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.rgbd_settings" title="Link to this definition"></a></dt>
+<dd><p>Settings for RGB-D odometry mode. See <code class="xref py py-class docutils literal notranslate"><span class="pre">Odometry.RGBDSettings</span></code></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.use_denoising">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_denoising</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.use_denoising" title="Link to this definition"></a></dt>
+<dd><p>Whether to apply denoising to input images</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.use_gpu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_gpu</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.use_gpu" title="Link to this definition"></a></dt>
+<dd><p>Whether to use GPU acceleration</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.Config.use_motion_model">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_motion_model</span></span><a class="headerlink" href="#cuvslam.core.Odometry.Config.use_motion_model" title="Link to this definition"></a></dt>
+<dd><p>Whether to use motion model for prediction</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.RGBDSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Odometry.</span></span><span class="sig-name descname"><span class="pre">RGBDSettings</span></span><a class="headerlink" href="#cuvslam.core.Odometry.RGBDSettings" title="Link to this definition"></a></dt>
+<dd><p>Settings for RGB-D odometry mode</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.RGBDSettings.depth_camera_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth_camera_id</span></span><a class="headerlink" href="#cuvslam.core.Odometry.RGBDSettings.depth_camera_id" title="Link to this definition"></a></dt>
+<dd><p>ID of the camera that the depth image is aligned with</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.RGBDSettings.depth_scale_factor">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth_scale_factor</span></span><a class="headerlink" href="#cuvslam.core.Odometry.RGBDSettings.depth_scale_factor" title="Link to this definition"></a></dt>
+<dd><p>Scale factor for depth measurements</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Odometry.RGBDSettings.enable_depth_stereo_tracking">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_depth_stereo_tracking</span></span><a class="headerlink" href="#cuvslam.core.Odometry.RGBDSettings.enable_depth_stereo_tracking" title="Link to this definition"></a></dt>
+<dd><p>Whether to enable stereo tracking between depth-aligned camera and other cameras</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Slam.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config" title="Link to this definition"></a></dt>
+<dd><p>SLAM configuration parameters</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.enable_reading_internals">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_reading_internals</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.enable_reading_internals" title="Link to this definition"></a></dt>
+<dd><p>Enable reading internal data from SLAM</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.gt_align_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gt_align_mode</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.gt_align_mode" title="Link to this definition"></a></dt>
+<dd><p>Special mode for visual map building with ground truth</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.map_cell_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map_cell_size</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.map_cell_size" title="Link to this definition"></a></dt>
+<dd><p>Size of map cell (0 for auto-calculate from camera baseline)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.max_map_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_map_size</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.max_map_size" title="Link to this definition"></a></dt>
+<dd><p>Maximum number of poses in SLAM pose graph (0 for unlimited)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.planar_constraints">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">planar_constraints</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.planar_constraints" title="Link to this definition"></a></dt>
+<dd><p>Modify poses so camera moves on a horizontal plane</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.sync_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sync_mode</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.sync_mode" title="Link to this definition"></a></dt>
+<dd><p>If true, localization and mapping run in the same thread as visual odometry</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.throttling_time_ms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">throttling_time_ms</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.throttling_time_ms" title="Link to this definition"></a></dt>
+<dd><p>Minimum time between loop closure events in milliseconds</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Config.use_gpu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_gpu</span></span><a class="headerlink" href="#cuvslam.core.Slam.Config.use_gpu" title="Link to this definition"></a></dt>
+<dd><p>Whether to use GPU acceleration</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Slam.</span></span><span class="sig-name descname"><span class="pre">Metrics</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics" title="Link to this definition"></a></dt>
+<dd><p>SLAM metrics</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.lc_good_landmarks_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lc_good_landmarks_count</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.lc_good_landmarks_count" title="Link to this definition"></a></dt>
+<dd><p>Count of landmarks in loop closure</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.lc_pnp_landmarks_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lc_pnp_landmarks_count</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.lc_pnp_landmarks_count" title="Link to this definition"></a></dt>
+<dd><p>Count of landmarks in PnP for loop closure</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.lc_selected_landmarks_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lc_selected_landmarks_count</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.lc_selected_landmarks_count" title="Link to this definition"></a></dt>
+<dd><p>Count of landmarks selected for loop closure</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.lc_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lc_status</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.lc_status" title="Link to this definition"></a></dt>
+<dd><p>Loop closure status</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.lc_tracked_landmarks_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lc_tracked_landmarks_count</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.lc_tracked_landmarks_count" title="Link to this definition"></a></dt>
+<dd><p>Count of landmarks tracked in loop closure</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.pgo_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pgo_status</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.pgo_status" title="Link to this definition"></a></dt>
+<dd><p>Pose graph optimization status</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.Metrics.timestamp_ns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp_ns</span></span><a class="headerlink" href="#cuvslam.core.Slam.Metrics.timestamp_ns" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of measurements in nanoseconds</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.core.Slam.</span></span><span class="sig-name descname"><span class="pre">LocalizationSettings</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings" title="Link to this definition"></a></dt>
+<dd><p>Localization settings</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings.angular_step_rads">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angular_step_rads</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings.angular_step_rads" title="Link to this definition"></a></dt>
+<dd><p>Angular step around vertical axis in radians</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings.horizontal_search_radius">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">horizontal_search_radius</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings.horizontal_search_radius" title="Link to this definition"></a></dt>
+<dd><p>Horizontal search radius in meters</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings.horizontal_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">horizontal_step</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings.horizontal_step" title="Link to this definition"></a></dt>
+<dd><p>Horizontal step in meters</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings.vertical_search_radius">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertical_search_radius</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings.vertical_search_radius" title="Link to this definition"></a></dt>
+<dd><p>Vertical search radius in meters</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cuvslam.core.Slam.LocalizationSettings.vertical_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertical_step</span></span><a class="headerlink" href="#cuvslam.core.Slam.LocalizationSettings.vertical_step" title="Link to this definition"></a></dt>
+<dd><p>Vertical step in meters</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="tracker-class">
+<h2>Tracker class<a class="headerlink" href="#tracker-class" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cuvslam.Tracker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">Tracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rig:</span> <span class="pre">~cuvslam.pycuvslam.Rig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odom_config:</span> <span class="pre">~cuvslam.pycuvslam.Odometry.Config</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;cuvslam.pycuvslam.Odometry.Config</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slam_config:</span> <span class="pre">~cuvslam.pycuvslam.Slam.Config</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker" title="Link to this definition"></a></dt>
+<dd><p>A wrapper that combines cuVSLAM Odometry and SLAM functionality.</p>
+<p>This class automatically manages both the Odometry and SLAM instances,
+providing a simplified interface for common use cases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rig</strong> (<a class="reference internal" href="#cuvslam.Rig" title="cuvslam.pycuvslam.Rig"><em>Rig</em></a>)</p></li>
+<li><p><strong>odom_config</strong> (<a class="reference internal" href="#cuvslam.core.Odometry.Config" title="cuvslam.pycuvslam.Odometry.Config"><em>Config</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>slam_config</strong> (<a class="reference internal" href="#cuvslam.core.Slam.Config" title="cuvslam.pycuvslam.Slam.Config"><em>Config</em></a><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Tracker.OdometryConfig">
+<span class="sig-name descname"><span class="pre">OdometryConfig</span></span><a class="headerlink" href="#cuvslam.Tracker.OdometryConfig" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#cuvslam.core.Odometry.Config" title="cuvslam.pycuvslam.Odometry.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Tracker.OdometryRGBDSettings">
+<span class="sig-name descname"><span class="pre">OdometryRGBDSettings</span></span><a class="headerlink" href="#cuvslam.Tracker.OdometryRGBDSettings" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#cuvslam.core.Odometry.RGBDSettings" title="cuvslam.pycuvslam.Odometry.RGBDSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">RGBDSettings</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Tracker.SlamConfig">
+<span class="sig-name descname"><span class="pre">SlamConfig</span></span><a class="headerlink" href="#cuvslam.Tracker.SlamConfig" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#cuvslam.core.Slam.Config" title="cuvslam.pycuvslam.Slam.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Tracker.SlamMetrics">
+<span class="sig-name descname"><span class="pre">SlamMetrics</span></span><a class="headerlink" href="#cuvslam.Tracker.SlamMetrics" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#cuvslam.core.Slam.Metrics" title="cuvslam.pycuvslam.Slam.Metrics"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metrics</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cuvslam.Tracker.SlamLocalizationSettings">
+<span class="sig-name descname"><span class="pre">SlamLocalizationSettings</span></span><a class="headerlink" href="#cuvslam.Tracker.SlamLocalizationSettings" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#cuvslam.core.Slam.LocalizationSettings" title="cuvslam.pycuvslam.Slam.LocalizationSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalizationSettings</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.track">
+<span class="sig-name descname"><span class="pre">track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cuvslam.PoseEstimate" title="cuvslam.pycuvslam.PoseEstimate"><span class="pre">PoseEstimate</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cuvslam.Pose" title="cuvslam.pycuvslam.Pose"><span class="pre">Pose</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.track"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.track" title="Link to this definition"></a></dt>
+<dd><p>Track a rig pose using current image frame.</p>
+<p>This method combines tracking and SLAM processing in a single call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>int</em>) – Images timestamp in nanoseconds</p></li>
+<li><p><strong>images</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – List of numpy arrays containing the camera images</p></li>
+<li><p><strong>masks</strong> (<em>List</em><em>[</em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Optional list of numpy arrays containing masks for the images</p></li>
+<li><p><strong>depths</strong> (<em>List</em><em>[</em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Optional list of numpy arrays containing depth images</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The computed pose estimate from Odometry
+Pose: The computed pose estimate from SLAM</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cuvslam.PoseEstimate" title="cuvslam.PoseEstimate">PoseEstimate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.register_imu_measurement">
+<span class="sig-name descname"><span class="pre">register_imu_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sensor_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imu_measurement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cuvslam.ImuMeasurement" title="cuvslam.pycuvslam.ImuMeasurement"><span class="pre">ImuMeasurement</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.register_imu_measurement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.register_imu_measurement" title="Link to this definition"></a></dt>
+<dd><p>Register an IMU measurement with the tracker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_index</strong> (<em>int</em>)</p></li>
+<li><p><strong>imu_measurement</strong> (<a class="reference internal" href="#cuvslam.ImuMeasurement" title="cuvslam.pycuvslam.ImuMeasurement"><em>ImuMeasurement</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_last_observations">
+<span class="sig-name descname"><span class="pre">get_last_observations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_last_observations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_last_observations" title="Link to this definition"></a></dt>
+<dd><p>Get observations from the last frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>camera_index</strong> (<em>int</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>List</em>[<em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_last_landmarks">
+<span class="sig-name descname"><span class="pre">get_last_landmarks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_last_landmarks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_last_landmarks" title="Link to this definition"></a></dt>
+<dd><p>Get landmarks from the last frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_last_gravity">
+<span class="sig-name descname"><span class="pre">get_last_gravity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_last_gravity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_last_gravity" title="Link to this definition"></a></dt>
+<dd><p>Get gravity vector from the last frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_final_landmarks">
+<span class="sig-name descname"><span class="pre">get_final_landmarks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_final_landmarks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_final_landmarks" title="Link to this definition"></a></dt>
+<dd><p>Get all final landmarks from all frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[int, <em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_all_slam_poses">
+<span class="sig-name descname"><span class="pre">get_all_slam_poses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_poses_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_all_slam_poses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_all_slam_poses" title="Link to this definition"></a></dt>
+<dd><p>Get all SLAM poses for each frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_poses_count</strong> (<em>int</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>List</em>[<em>Any</em>] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_pose_graph">
+<span class="sig-name descname"><span class="pre">get_pose_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_pose_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_pose_graph" title="Link to this definition"></a></dt>
+<dd><p>Get pose graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_slam_metrics">
+<span class="sig-name descname"><span class="pre">get_slam_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_slam_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_slam_metrics" title="Link to this definition"></a></dt>
+<dd><p>Get SLAM metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cuvslam.Tracker.get_loop_closure_poses">
+<span class="sig-name descname"><span class="pre">get_loop_closure_poses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/cuvslam/tracker.html#Tracker.get_loop_closure_poses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cuvslam.Tracker.get_loop_closure_poses" title="Link to this definition"></a></dt>
+<dd><p>Get list of last 10 loop closure poses with timestamps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>Any</em>] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cuvslam.get_version">
+<span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#cuvslam.get_version" title="Link to this definition"></a></dt>
+<dd><p>Get the version of cuVSLAM library you are using.</p>
+<p>Returns a tuple with the detailed version and major and minor versions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cuvslam.set_verbosity">
+<span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">set_verbosity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#cuvslam.set_verbosity" title="Link to this definition"></a></dt>
+<dd><p>Set the verbosity level of the library.</p>
+<p>Available values: 0 (default) for no output, 1 for error messages, 2 for warnings, 3 for info messages.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cuvslam.warm_up_gpu">
+<span class="sig-prename descclassname"><span class="pre">cuvslam.</span></span><span class="sig-name descname"><span class="pre">warm_up_gpu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#cuvslam.warm_up_gpu" title="Link to this definition"></a></dt>
+<dd><p>Warm up the GPU (CUDA runtime).</p>
+<p>It is not necessary to call it before the first call to cuvslam, but it can help to reduce the first call latency.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PyCuVSLAM’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NVIDIA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

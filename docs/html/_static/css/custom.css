@@ -1,0 +1,235 @@
+@import url("theme.css");
+@import url("../pygments.css");
+
+body {
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Default header fonts are ugly */
+h1,
+h2,
+.rst-content .toctree-wrapper p.caption,
+h3,
+h4,
+h5,
+h6,
+legend,
+p.caption {
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+}
+
+.wy-nav-side {
+    background-color: #fff;
+    padding-bottom: 48px;
+}
+
+/* Make left sidebar font bigger */
+.wy-menu-vertical {
+    font-size: 16px !important;
+}
+
+/* Make class/member items in sidebar bigger */
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l4 a,
+.wy-menu-vertical li.toctree-l2 span,
+.wy-menu-vertical li.toctree-l3 span,
+.wy-menu-vertical li.toctree-l4 span {
+    font-size: 13px !important;
+}
+
+.rst-versions.shift-up {
+    overflow: auto;
+}
+
+/* Use white for docs background */
+.wy-side-nav-search {
+    background-color: #fff;
+}
+
+.wy-nav-content-wrap,
+.wy-menu li.current>a {
+    background-color: #fff;
+}
+
+@media screen and (min-width: 1400px) {
+    .wy-nav-content {
+        background-color: #fff;
+    }
+}
+
+/* Fixes for mobile */
+.wy-nav-top {
+    background-color: #fff;
+    padding: 0;
+    margin: 0.4045em 0.809em;
+    color: #76b900;
+}
+
+.wy-nav-top > a {
+    color: #76b900;
+}
+
+@media screen and (max-width: 768px) {
+    .wy-side-nav-search>a img.logo {
+        height: 60px;
+    }
+}
+
+/* This is needed to ensure that logo above search scales properly */
+.wy-side-nav-search a {
+    display: block;
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-color: #76b900;
+}
+
+/* Style for the logo, somehow unhides it */
+.wy-side-nav-search > a {
+    color: #76b900;
+}
+
+.wy-side-nav-search > .version {
+    color: #404040;
+}
+
+/* This ensures that multiple constructors will remain in separate lines. */
+.rst-content dl:not(.docutils) dt {
+    display: table;
+    color: rgba(83, 150, 0, 0.9);
+    background-color: rgba(118, 185, 0, 0.15);
+    border-top-color: rgba(83, 150, 0, 0.9);
+}
+
+/* Force properties to be on separate lines */
+.rst-content dl.py.property {
+    display: block !important;
+}
+
+/* Use our red for literals (it's very similar to the original color) */
+.rst-content tt.literal,
+.rst-content tt.literal,
+.rst-content code.literal {
+    color: #76b900 !important;
+}
+
+.rst-content tt.xref,
+a .rst-content tt,
+.rst-content tt.xref,
+.rst-content code.xref,
+a .rst-content tt,
+a .rst-content code {
+    color: #fff;
+}
+
+/* Change link colors (except for the menu) */
+
+a {
+    color: #76b900;
+}
+
+a:hover {
+    color: #76b900;
+}
+
+
+a:visited {
+    color: #76b900;
+}
+
+.wy-menu a {
+    color: #404040;
+}
+
+.wy-menu a:hover {
+    color: #76b900;
+}
+
+/* Default footer text is quite big */
+footer {
+    font-size: 80%;
+}
+
+footer .rst-footer-buttons {
+    font-size: 125%;
+    /* revert footer settings - 1/80% = 125% */
+}
+
+footer p {
+    font-size: 100%;
+}
+
+/* For hidden headers that appear in TOC tree */
+/* see http://stackoverflow.com/a/32363545/3343043 */
+.rst-content .hidden-section {
+    display: none;
+}
+
+nav .hidden-section {
+    display: inherit;
+}
+
+.wy-side-nav-search>div.version {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Provides nice properties to make screenshots stand out clearly. */
+.screenshot {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* override table width restrictions */
+@media screen and (min-width: 767px) {
+
+    .wy-table-responsive table td {
+        /* !important prevents the common CSS stylesheets from overriding
+         this as on RTD they are loaded after this stylesheet */
+        white-space: normal !important;
+    }
+
+    .wy-table-responsive {
+        overflow: visible !important;
+    }
+}
+
+/* Makes the left-side TOC headers green */
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+    color: #000;
+}
+
+/* Add a little space after images */
+.wy-plain-list-decimal li,
+.rst-content img {
+    margin-bottom: 24px;
+}
+
+.rst-content .note .admonition-title,
+.rst-content .wy-alert-info.attention .admonition-title,
+.admonition .note,
+.first .admonition-title {
+    background: #76b900;
+}
+
+.rst-content .note p:last-child,
+.rst-content .note {
+    background: #ddeebf
+}
+
+/* Style class headers with green theme */
+.rst-content dl.py.class > dt,
+.rst-content dl.py.function > dt,
+.rst-content dl.py.method > dt {
+    background: rgba(118, 185, 0, 0.15) !important;
+    color: rgba(83, 150, 0, 0.9) !important;
+    border-top: 3px solid rgba(83, 150, 0, 0.9) !important;
+}
+
+.rst-content dl.py.class > dt .property,
+.rst-content dl.py.function > dt .property,
+.rst-content dl.py.method > dt .property {
+    color: rgba(83, 150, 0, 0.9) !important;
+    background: rgba(118, 185, 0, 0.1) !important;
+}

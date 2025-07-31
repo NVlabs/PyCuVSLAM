@@ -1,0 +1,89 @@
+#     Jetson Nano Frame Rig
+#
+# d435 camera with screw holes marked as * and IR cameras marked as V
+# (supposed to be 15mm from back plane to camera plane)
+#
+#           <-50mm->
+#        _V_________V 
+#        *       *
+#        <-45mm->
+#  
+#                                       V
+# d455 camera with IR cameras marked as V
+# (screw holes on a back plane right behind the cameras,
+#  supposed to be 15mm from back plane to camera plane):
+#
+#      V                V
+#      V________________V
+#          <--95mm-->
+# 
+#              Y-axis
+#                O-----> X-axis
+#                |
+#          Z-axis|
+#                V 
+#
+#   (-47.5,-15)       (47.5,-15)
+#       V(-25,0)    (25,0)V
+#    ___V__V_____x_____V__V___
+#   |     *    (0,0) *        |
+#   |  (-30,0)      (15,0)    |
+#   |                         |
+# >> (-78,15.5)                << (78,15.5)
+#   |                         |
+#   |                 (63,33)*|
+#  > (-78,38)                  <  (78,38)
+#   |                         |
+#   |*(-63,48)                |
+#   |                         |         ^
+#   |                         |         | 
+#   |   left           right  |        126mm
+#   |  camera         camera  |         |
+#   |                         |         V
+#   |                 (63,78)*|
+#   |                         |
+#  > (-78,88)                  <  (78,88)
+#   |*(-63,93)                |
+#   |                         |
+# >> (-78,110.5)               << (78,110.5)
+#   |                         |
+#   |                         |
+#   |_________________________|
+#          <--126mm-->
+
+stereo_cameras:
+  - serial: '238222076390' # front camera
+    left_camera:
+      transform:
+        - [1, 0, 0, -0.025] # -0.0475 for D455
+        - [0, 1, 0, 0]
+        - [0, 0, 1, -0.015]
+    right_camera:
+      transform:
+        - [1, 0, 0, 0.025] # 0.0475 for D455
+        - [0, 1, 0, 0]
+        - [0, 0, 1, -0.015]
+  
+  - serial: '243222071526' # left camera
+    left_camera:
+      transform:
+        - [0, 0, 1, -0.078]
+        - [0, 1, 0, 0]
+        - [-1, 0, 0, 0.088] # 0.1105 for D455
+    right_camera:
+      transform:
+        - [0, 0, 1, -0.078]
+        - [0, 1, 0, 0]
+        - [-1, 0, 0, 0.038] # 0.0155 for D455
+  
+  - serial: '243222072606' # right camera
+    left_camera:
+      transform:
+        - [0, 0, -1, 0.078]
+        - [0, 1, 0, 0]
+        - [1, 0, 0, 0.038] # 0.0155 for D455
+    right_camera:
+      transform:
+        - [0, 0, -1, 0.078]
+        - [0, 1, 0, 0]
+        - [1, 0, 0, 0.088] # 0.1105 for D455
